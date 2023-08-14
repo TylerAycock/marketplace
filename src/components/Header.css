@@ -1,0 +1,21 @@
+.title{
+    font-size: 4rem;
+}
+.nav-bar{
+    display: flex;
+    width: 100vw;
+    height: 6rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav-bar:hover{
+    background-color: rgb(225, 149, 50);
+    transition: background-color 500ms linear;
+}
+.cart-logo,
+.search-icon,
+.person-icon{
+    height: 2.5rem;
+    width: 2.5rem;
+}

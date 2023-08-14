@@ -1,0 +1,15 @@
+.prod-card{
+    border: 1px solid black;
+    height: 65%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.prod-img{
+    height: 55%;
+    width: 75%;
+}
