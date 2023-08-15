@@ -1,5 +1,7 @@
 import ProductCard from "./cards/ProductCard";
 import './Home.css'
+import Cart from "./cart/Cart";
+
 
 const Home = ({products}) => {
 
@@ -7,7 +9,10 @@ const Home = ({products}) => {
     return <ProductCard key={item.id} item={item}/>;
   });
 
-  return <div className="prod-container">{productList}</div>;
+  return <>
+      <Cart></Cart>
+      <div className="prod-container">{productList}</div>;
+  </> 
 };
 
 export default Home;

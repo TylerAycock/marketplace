@@ -6,6 +6,7 @@ const Search = ({ products }) => {
   const [searchInput, setSearchInput] = useState("");
   const [category, setCategory] = useState("");
   const [filtered, setFiltered] = useState([]);
+  const [filterSearch, setFilterSearch] = useState("");
 
   //updates filtered list every time category changes
   useEffect(() => {
@@ -15,19 +16,21 @@ const Search = ({ products }) => {
     setFiltered([...cat]);
   }, [category]);
 
-  //maps over dropdown filter to return specified items
-  const itemDisplay = filtered.map((item, index) => {
-    return (
-      <>
-        <ProductCard key={index} item={item} />
-      </>
-    );
-  });
-
   //filters products arr to only show items that meet search query
-  let productDisplay = products
+  let searchDisplay = products
     .filter((item) => {
       if (item.title.toLowerCase().includes(searchInput.toLowerCase())) {
+        return item;
+      }
+    })
+    .map((item, index) => {
+      return <ProductCard key={index} item={item} />;
+    });
+
+  //additional filter option to support the dropdown filter
+  let dropDownDisplay = filtered
+    .filter((item) => {
+      if (item.title.toLowerCase().includes(filterSearch.toLowerCase())) {
         return item;
       }
     })
@@ -57,11 +60,20 @@ const Search = ({ products }) => {
           <option value="jewelery">Jewelry</option>
           <option value="electronics">Electronics</option>
         </select>
+        {category.length > 0 ? (
+          <input
+            type="text"
+            placeholder="filter more"
+            onChange={(e) => setFilterSearch(e.target.value)}
+          />
+        ) : (
+          ""
+        )}
       </div>
       {category.length > 0 ? (
-        <div className="prod-container">{itemDisplay}</div>
+        <div className="prod-container">{dropDownDisplay}</div>
       ) : (
-        <div className="prod-container">{productDisplay}</div>
+        <div className="prod-container">{searchDisplay}</div>
       )}
     </div>
   );

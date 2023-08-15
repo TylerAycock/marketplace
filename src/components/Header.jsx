@@ -30,14 +30,14 @@ const Header = () => {
         <h1 className="title">Fake Store</h1>
       </NavLink>
       <nav>
-        <NavLink to={'/search'}>
+        <NavLink to={"/search"}>
           <img src={search} alt="serach icon" className="search-icon" />
         </NavLink>
         <NavLink>
           <img src={person} alt="person icon" className="person-icon" />
         </NavLink>
-        <NavLink to={"/cart"}>
-          <img src={cart} alt="shopping cart" className="cart-logo" />
+        <NavLink>
+          <img src={cart} alt="shopping cart" className="cart-logo" onClick={()=>{setModal(true)}}/>
         </NavLink>
       </nav>
     </div>
