@@ -1,8 +1,9 @@
 .prod-container{
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 6rem);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    padding-top: 6rem;
 }

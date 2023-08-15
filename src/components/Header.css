@@ -1,3 +1,7 @@
+:root{
+    --primary-hsl: 26, 93%, 78%;
+}
+
 .title{
     font-size: 4rem;
 }
@@ -7,15 +11,21 @@
     height: 6rem;
     align-items: center;
     justify-content: space-evenly;
+    position: fixed;
+    top: 0px;
+    margin: 0 auto;
+    z-index: 1;
 }
 
-.nav-bar:hover{
-    background-color: rgb(225, 149, 50);
-    transition: background-color 500ms linear;
-}
 .cart-logo,
 .search-icon,
 .person-icon{
     height: 2.5rem;
     width: 2.5rem;
 }
+
+.is-sticky {
+    box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+    background-color:hsl(var(--primary-hsl), .7);
+    transition: background-color 500ms linear;
+  }
