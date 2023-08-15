@@ -1,0 +1,49 @@
+.item-container{
+    display: flex;
+    height: 100vh;
+}
+
+.img-container,
+.details-container{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details-container{
+    flex-direction: column;
+    gap: 25px;
+}
+
+.category{
+    text-decoration: underline;
+    font-size: 1.25rem;
+}
+
+.title{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.prod-img{
+    height: 40%;
+    width: 40%;
+}
+
+.ratings{
+    display: flex;
+    color: rgb(66, 65, 65);
+    gap: 20px;
+    align-self: flex-end;
+}
+
+.price{
+    font-style: thin;
+    font-size: 2rem;
+    align-self: flex-start;
+}
+
+.descrip{
+    font-style: italic;
+}

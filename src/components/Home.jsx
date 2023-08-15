@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
+      .get("https://fakestoreapi.com/products?limit=5")
       .then((res) => {
         // console.log(res.data);
         setProducts([...res.data]);
@@ -16,10 +16,8 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(products);
-
   const productList = products.map((item) => {
-    return <ProductCard item={item}/>;
+    return <ProductCard key={item.id} item={item}/>;
   });
 
   return <div className="prod-container">{productList}</div>;
