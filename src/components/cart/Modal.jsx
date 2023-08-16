@@ -20,10 +20,7 @@ const Modal = (props) => {
   return (
     <Fragment>
       {createPortal(<Backdrop />, portalElement)}
-      {createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
-        portalElement
-      )}
+      {createPortal(<ModalOverlay>{props.children}</ModalOverlay>,portalElement)}
     </Fragment>
   );
 };

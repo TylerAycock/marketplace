@@ -1,8 +1,25 @@
 import StarRating from "../rating/StarRating";
 import { Link } from "react-router-dom";
-import './DetailsCard.css'
+import "./DetailsCard.css";
+import axios from "axios";
 
-const DetailsCard = ({item, rating}) => {
+const DetailsCard = ({ item, rating }) => {
+  const clickHandler = () => {
+    let body = {
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      img: item.image,
+    };
+    axios
+      .post("http://localhost:5050/cart", body)
+      .then((res) => {
+        console.log("item sent!");
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="item-container">
       <div className="img-container">
@@ -17,10 +34,18 @@ const DetailsCard = ({item, rating}) => {
           <StarRating rating={rating.rate} />
           <p>{rating.count} Reviews</p>
         </div>
+        <Link to={"/"}>Home</Link>
+        <button
+          className="add-btn"
+          onClick={() => {
+            clickHandler();
+          }}
+        >
+          ADD TO CART
+        </button>
       </div>
-      <Link to={"/"}>Back</Link>
     </div>
   );
 };
 
-export default DetailsCard
+export default DetailsCard;

@@ -5,7 +5,7 @@ import person from "../assets/person.png";
 import "./Header.css";
 import { useState, useEffect } from "react";
 
-const Header = () => {
+const Header = ({modal, setModal}) => {
   const [sticky, setSticky] = useState("");
 
   useEffect(() => {
@@ -24,6 +24,11 @@ const Header = () => {
 
   const classes = `nav-bar ${sticky}`;
 
+  const ClickHandler = () => {
+    setModal(!modal)
+    
+  }
+
   return (
     <div className={classes}>
       <NavLink to={"/"}>
@@ -36,9 +41,7 @@ const Header = () => {
         <NavLink>
           <img src={person} alt="person icon" className="person-icon" />
         </NavLink>
-        <NavLink>
-          <img src={cart} alt="shopping cart" className="cart-logo" onClick={()=>{setModal(true)}}/>
-        </NavLink>
+          <img src={cart} alt="shopping cart" className="cart-logo" onClick={ClickHandler}/>
       </nav>
     </div>
   );

@@ -1,6 +1,7 @@
 import "./Search.css";
 import { useState, useEffect } from "react";
-import ProductCard from "./cards/ProductCard";
+import ProductCard from "../cards/ProductCard";
+import Dropdown from "./DropDown";
 
 const Search = ({ products }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -55,10 +56,11 @@ const Search = ({ products }) => {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="">Select a category</option>
-          <option value="men's clothing">Men's Clothing</option>
+          <Dropdown products={products}/>
+          {/* <option value="men's clothing">Men's Clothing</option>
           <option value="women's clothing">Women's Clothing</option>
           <option value="jewelery">Jewelry</option>
-          <option value="electronics">Electronics</option>
+          <option value="electronics">Electronics</option> */}
         </select>
         {category.length > 0 ? (
           <input

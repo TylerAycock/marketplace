@@ -14,6 +14,7 @@
 .details-container{
     flex-direction: column;
     gap: 25px;
+    padding-right: 25px;
 }
 
 .category{
@@ -46,4 +47,23 @@
 
 .descrip{
     font-style: italic;
+}
+
+.add-btn{
+    background-color: hsl(var(--primary-hsl));
+    padding: 14px 28px;
+    width: 50%;
+    font-size: 1.25rem;
+    border: none;
+    outline: none;
+    border-radius: .25em;
+    font-weight: lighter;
+    box-shadow: 0 0 2px 1px black;
+}
+
+.add-btn:hover{
+    cursor: pointer;
+    box-shadow: 0 0 2px 1px black;
+    background-color: black;
+    color: hsl(var(--primary-hsl));
 }
