@@ -12,12 +12,13 @@ app.use(cors())
 const {cart} = require('./controller/models/cart')
 
 //controller file
-const { addToCart, getCartItems } = require('./controller/controller')
+const { addToCart, getCartItems, deleteItem } = require('./controller/controller')
 
 
 //endpoints 
 app.post('/cart', addToCart)
 app.get('/cart', getCartItems)
+app.delete('/cart/:id', deleteItem)
 
 
 //database sync

@@ -1,26 +1,69 @@
 import Modal from "./Modal";
-import { useState } from "react";
+import afterPay from "../../assets/Afterpay_Logo_Black.png";
+import "./Cart.css";
+import CartCard from "../cards/CartCard";
 
 const Cart = ({ modal, setModal, cart }) => {
-  console.log(cart);
-  const [total, setTotal] = useState(0);
+  let itemDisplay = [];
+  let cost = 0;
+  let money = cost.toFixed(2);
 
-  // const display = cart?.map((item) => {
-  //   setTotal((total += +item.price));
-  //   return (
-  //     <div key={item.id}>
-  //       <h3>{item.title}</h3>
-  //       <img src={item.img} alt={img.title} />
-  //     </div>
-  //   );
-  // });
+  if (cart.length === 0) {
+    console.log("emtpy cart");
+  } else {
+    itemDisplay = cart.map((item) => {
+      return (
+        <CartCard item={item} key={item.id} modal={modal} setModal={setModal} />
+      );
+    });
+
+    cost = cart
+      .map((item) => {
+        return item.price;
+      })
+      .reduce((a, b) => {
+        return a + b;
+      });
+
+    money = cost.toFixed(2);
+  }
 
   return (
     <Modal>
-      <h2>Shopping Cart</h2>
-      <p>${total}</p>
-      <button>Purchase</button>
-      <button onClick={() => setModal(!modal)}>Keep Shopping</button>
+      {cart.length === 0 ? (
+        <div className="empty">
+          <h1 className="empty-msg">Cart is empty</h1>
+          <button onClick={()=>setModal(!modal)} className="cart-btn">Keep Shopping</button>
+        </div>
+      ) : (
+        <div className="cart-container">
+          <div className="item-box">
+            <h1 className="bag">Your Bag: ${money}</h1>
+            <span className="arrow">&#x2190;</span>
+            <button onClick={() => setModal(!modal)} className="cncl-btn">
+              Continue Shopping
+            </button>
+            <div className="item-cards">{itemDisplay}</div>
+          </div>
+          <div className="cost-box">
+            <h2 className="qualify">You qualify for free 2-Day Shipping!</h2>
+            <section className="cost-section">
+              <p>{cart.length} Item(s) Subtotal</p>
+              <p> {money}</p>
+            </section>
+            <section className="cost-section">
+              <p>Shipping </p>
+              <p className="tbd">TBD</p>
+            </section>
+            <section className="pay-method">
+              <img src={afterPay} alt="afterpay logo" className="afterpay" />
+              available for orders between $35 - $1000{" "}
+              <button className="info-btn">i</button>
+            </section>
+            <button className="cart-btn">Purchase</button>
+          </div>
+        </div>
+      )}
     </Modal>
   );
 };
