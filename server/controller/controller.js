@@ -1,4 +1,5 @@
 const { Cart } = require('./models/cart')
+const { User } = require('./models/user')
 
 module.exports = {
     addToCart: async (req, res) => {
@@ -37,6 +38,16 @@ module.exports = {
             } else {
                 console.log(`Cart with ID ${id} not found`);
             }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    },
+    newUser: async (req, resp) => {
+        try {
+            let { fName, lName, email, password } = req.body
+            console.log('new userNAme', fName)
+            await User.create({ fName, lName, email, password })
         }
         catch (err) {
             console.log(err)

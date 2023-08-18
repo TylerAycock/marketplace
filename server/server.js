@@ -9,16 +9,20 @@ app.use(express.json())
 app.use(cors())
 
 //db models
-const {cart} = require('./controller/models/cart')
+const {Cart} = require('./controller/models/cart')
+const {User} = require('./controller/models/user')
+
+
 
 //controller file
-const { addToCart, getCartItems, deleteItem } = require('./controller/controller')
+const { addToCart, getCartItems, deleteItem, newUser } = require('./controller/controller')
 
 
 //endpoints 
 app.post('/cart', addToCart)
 app.get('/cart', getCartItems)
 app.delete('/cart/:id', deleteItem)
+app.post('/register', newUser)
 
 
 //database sync

@@ -1,0 +1,124 @@
+:root{
+    --primary-light-hsl: 200, 100%, 91%;
+    --primary-hsl: 200, 100%, 50%;
+    --primary-dark-hsl: 200, 100%, 6%;
+    --success-hsl: 100, 60%, 50%;
+    --error-hsl: 0, 60%, 50%;
+}
+
+.auth-body{
+    width: 100vw;
+    height: calc(100vh - 6rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6rem;
+}
+
+
+.auth-title{
+    margin: 0;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: normal;
+    padding-bottom: .5rem;
+}
+
+.auth-container{
+    --color: hsl(var(--primary-dark-hsl), .7);
+    background-color: var(--color);
+    box-shadow:0 0 15 0 var(--color);
+    padding: 40px 30px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 20px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.sub-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.btn-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.input-group label{
+    color: white;
+    font-weight: lighter;
+
+}
+
+.input-group input {
+    font-size: 1.25rem;
+    padding: .5em;
+    background-color: hsl(var(--primary-light-hsl), .3);
+    border: none;
+    outline: none;
+    border-radius: .25em;
+    color: white;
+    font-weight: lighter;
+}
+
+.input-group input:focus{
+    box-shadow: 0 0 2px 1px hsl(var(--primary-hsl));
+    /* we use this instead of a border so it wont move the entire element */
+}
+
+
+.input-group.success input{
+    box-shadow: 0 0 2px 1px hsl(var(--success-hsl));
+}
+
+.input-group.error input{
+    box-shadow: 0 0 2px 1px hsl(var(--error-hsl));
+}
+
+.input-group .msg{
+    display: none;
+    font-size: .75rem;
+}
+
+.input-group.success .msg,
+.input-group.error .msg {
+    display: block;
+}
+
+.auth-btn{
+    padding: .5rem 1em;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: white;
+    background-color: hsl(var(--primary-hsl), .25);
+    border: 1px solid hsl(var(--primary-hsl));
+    border-radius: .25rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.auth-btn:hover{
+    background-color: hsl(var(--primary-hsl),.4) ;
+}
+
+.auth-btn a{
+    text-decoration: none;
+    color: white;
+}
