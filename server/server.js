@@ -8,14 +8,14 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-//db models
+//db models adn relationships
 const {Cart} = require('./controller/models/cart')
 const {User} = require('./controller/models/user')
 
 
 
 //controller file
-const { addToCart, getCartItems, deleteItem, newUser } = require('./controller/controller')
+const { addToCart, getCartItems, deleteItem, newUser, loginUser } = require('./controller/controller')
 
 
 //endpoints 
@@ -23,6 +23,7 @@ app.post('/cart', addToCart)
 app.get('/cart', getCartItems)
 app.delete('/cart/:id', deleteItem)
 app.post('/register', newUser)
+app.post('/login', loginUser)
 
 
 //database sync

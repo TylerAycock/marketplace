@@ -1,13 +1,32 @@
 import "./Auth.css";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from 'axios'
 
-const Login = () => {
+const Login = ({ token, setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const user = {
+      email: email.trim(),
+      password: password,
+    };
+    console.log(user);
+    axios
+      .post("http://localhost:5050/login", user)
+      .then((res) => {
+        localStorage.setItem("userTokern", res.data);
+        console.log("user confirmed and token now in local storage!");
+        setToken(res.data);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log('failure sending to server')
+        console.log(err)
+      });
   };
 
   return (

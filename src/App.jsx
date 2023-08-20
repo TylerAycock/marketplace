@@ -14,6 +14,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [modal, setModal] = useState(false);
   const [cart, setCart] = useState([]);
+  const[token, setToken] = useState('')
 
   //initial API request
   useEffect(() => {
@@ -37,13 +38,13 @@ function App() {
 
   return (
     <div className="wep-page">
-      <Header modal={modal} setModal={setModal} />
+      <Header modal={modal} setModal={setModal}  />
       {modal && <Cart modal={modal} setModal={setModal} cart={cart} />}
       <Routes>
         <Route index element={<Home products={products} />} />
         <Route path={"/details/:id"} element={<ProductDetails />} />
         <Route path={"/search"} element={<Search products={products} />} />
-        <Route path={"/login"} element={<Login />} />
+        <Route path={"/login"} element={<Login token={token} setToken={setToken}/>} />
         <Route path={"/register"} element={<Register />} />
       </Routes>
     </div>
