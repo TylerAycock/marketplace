@@ -1,9 +1,9 @@
 import "./Auth.css";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
-const Login = ({ token, setToken }) => {
+const Login = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -18,14 +18,18 @@ const Login = ({ token, setToken }) => {
     axios
       .post("http://localhost:5050/login", user)
       .then((res) => {
-        localStorage.setItem("userTokern", res.data);
-        console.log("user confirmed and token now in local storage!");
-        setToken(res.data);
-        navigate("/");
+        if (res.data === "this email is not in our records") {
+          alert(res.data);
+        } else {
+          localStorage.setItem("userTokern", res.data);
+          console.log("user confirmed and token now in local storage!");
+          setToken(res.data);
+          navigate("/");
+        }
       })
       .catch((err) => {
-        console.log('failure sending to server')
-        console.log(err)
+        console.log("failure sending to server");
+        console.log(err);
       });
   };
 
@@ -33,34 +37,32 @@ const Login = ({ token, setToken }) => {
     <div className="auth-body">
       <div className="auth-container">
         <h1 className="auth-title">Login</h1>
-        <p>
+        <p className="auth-message">
           Welcome back! Please sign in using your email address and password
           below
         </p>
         <form onSubmit={submitHandler}>
-          <div className="input-group success">
-            <label htmlFor="email">Email</label>
+          <div className="input-group">
             <input
+              placeholder="Email Address"
               type="email"
               name="email"
               id="email"
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              value={email}
             />
             <span className="msg">Valid Email</span>
           </div>
-          <div className="input-group error">
-            <label htmlFor="password">Password</label>
+          <div className="input-group">
             <input
+              placeholder="Password"
               type="password"
               name="password"
               id="password"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
-              value={password}
             />
             <span className="msg">Incorrect Password</span>
           </div>
@@ -71,10 +73,10 @@ const Login = ({ token, setToken }) => {
           </div>
         </form>
       </div>
-      <div>
-        <h1>New Customer</h1>
-        <p>
-          create an account to check out faster in the future and receive emails
+      <div className="auth-container new-user">
+        <h1 className="auth-title">New Customer</h1>
+        <p className="auth-message">
+          Create an account to check out faster in the future and receive emails
           about your orders, new products, events and special offers!
         </p>
         <button className="auth-btn">

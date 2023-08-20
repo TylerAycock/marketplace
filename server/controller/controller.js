@@ -79,13 +79,14 @@ module.exports = {
     },
     loginUser: async (req,res) => {
         console.log(req.body)
-        const {email, password} = req.body
+        const {email} = req.body
         let foundUser = await User.findOne({where: {email: email}})
-        if(!foundUser){
+        // console.log(foundUser)
+        if(foundUser === null){
             return res.status(201).send(`this email is not in our records`)
         }
         try{
-            if(await bcrypt.compare(password, foundUser.password )){
+            if(await bcrypt.compare(req.body.password, foundUser.password )){
                 let token = generateToken(req.body)
                 console.log('token generated in controller file', token)
                 res.status(200).send(token)
