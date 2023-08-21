@@ -3,11 +3,15 @@ const {db} = require('../../database')
 
 module.exports = {
     Cart: db.define('cart', {
-        id: {
+        cartId: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,
             autoIncrement: true
+        },
+        userId:{
+            type: DataTypes.INTEGER,
+            allowNull: false 
         },
         prodId: {
             type: DataTypes.INTEGER,

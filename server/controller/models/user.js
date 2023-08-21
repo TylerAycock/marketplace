@@ -3,7 +3,7 @@ const { db } = require('../../database')
 
 module.exports = {
     User: db.define('user', {
-        user_id: {
+        userId: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             allowNull: false,

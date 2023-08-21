@@ -4,15 +4,27 @@ import "./DetailsCard.css";
 import axios from "axios";
 
 const DetailsCard = ({ item, rating }) => {
+
+ 
   const clickHandler = () => {
+    const token = localStorage.getItem('userToken')
+    const parsedToken = JSON.parse(atob(token.split('.')[1]))
+
     let body = {
+      email: parsedToken.email,
       id: item.id,
       title: item.title,
       price: item.price,
       img: item.image,
     };
+
+   
     axios
-      .post("http://localhost:5050/cart", body)
+      .post("http://localhost:5050/cart", body, {
+        headers: {
+          authorization: token
+        }
+      })
       .then((res) => {
         console.log("item sent!");
         console.log(res);

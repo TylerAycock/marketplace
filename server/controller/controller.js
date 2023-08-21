@@ -22,8 +22,13 @@ module.exports = {
     addToCart: async (req, res) => {
         try {
             console.log(req.body)
-            const { id: prodId, title, price, img } = req.body
-            await Cart.create({ prodId, title, price, img })
+            const { id: prodId, title, price, img, email } = req.body
+           const theUser = await User.findOne({
+                where: {
+                    email: email
+                }
+            })
+            await Cart.create({ prodId, title, price, img, userId: theUser.userId })
             res.sendStatus(201)
         }
         catch (err) {
@@ -32,8 +37,16 @@ module.exports = {
     },
     getCartItems: async (req, res) => {
         try {
+            const {email} = req.params
             console.log('sending cart')
-            const cart = await Cart.findAll()
+            const theUser = await User.findOne({
+                where: {
+                    email: email
+                }
+            })
+            const cart = await Cart.findAll({
+                where: {userId: theUser.userId}
+            })
             res.status(200).send(cart)
         }
         catch (err) {
@@ -47,7 +60,7 @@ module.exports = {
 
             const deleteRows = await Cart.destroy({
                 where: {
-                    id: id
+                    cartId: id
                 }
             })
             if (deleteRows > 0) {
@@ -71,28 +84,33 @@ module.exports = {
             console.log('new userNAme', fName)
             const hashedPass = await bcrypt.hash(password, 10)
             await User.create({ fName, lName, email, password: hashedPass })
-            res.sendStatus(201)
+            let info = {
+                email: email,
+                password: hashedPass
+            }
+            let token = generateToken(info)
+            res.status(201).send(token)
         }
         catch (err) {
             console.log(err)
         }
     },
-    loginUser: async (req,res) => {
-        console.log(req.body)
-        const {email} = req.body
-        let foundUser = await User.findOne({where: {email: email}})
-        // console.log(foundUser)
-        if(foundUser === null){
+    loginUser: async (req, res) => {
+        console.log("this is the req body" , req.body)
+        const { email } = req.body
+        let foundUser = await User.findOne({ where: { email: email } })
+        
+        if (foundUser === null) {
             return res.status(201).send(`this email is not in our records`)
         }
-        try{
-            if(await bcrypt.compare(req.body.password, foundUser.password )){
+        try {
+            if (await bcrypt.compare(req.body.password, foundUser.password)) {
                 let token = generateToken(req.body)
                 console.log('token generated in controller file', token)
                 res.status(200).send(token)
             }
         }
-        catch (error){
+        catch (error) {
             console.log('error in loginUser', error)
             res.sendStatus(201)
         }

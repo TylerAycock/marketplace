@@ -2,8 +2,9 @@ import "./Auth.css";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Logout from "./Logout";
 
-const Login = ({ setToken }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -21,9 +22,8 @@ const Login = ({ setToken }) => {
         if (res.data === "this email is not in our records") {
           alert(res.data);
         } else {
-          localStorage.setItem("userTokern", res.data);
+          localStorage.setItem("userToken", res.data);
           console.log("user confirmed and token now in local storage!");
-          setToken(res.data);
           navigate("/");
         }
       })
@@ -33,7 +33,9 @@ const Login = ({ setToken }) => {
       });
   };
 
+
   return (
+    localStorage.getItem('userToken') ? <Logout /> :
     <div className="auth-body">
       <div className="auth-container">
         <h1 className="auth-title">Login</h1>
@@ -83,7 +85,7 @@ const Login = ({ setToken }) => {
           <NavLink to={"/register"}>Register</NavLink>
         </button>
       </div>
-    </div>
+    </div> 
   );
 };
 

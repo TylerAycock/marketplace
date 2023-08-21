@@ -1,12 +1,12 @@
 import "./CartCard.css";
 import axios from "axios";
 
-const CartCard = ({ item, modal, setModal }) => {
-  let { id, img, price, prodId, title } = item;
+const CartCard = ({ item, modal, setModal}) => {
+  let { id, img, price, prodId, title, cartId } = item;
 
   const clickHandler = () => {
     axios
-      .delete(`http://localhost:5050/cart/${id}`)
+      .delete(`http://localhost:5050/cart/${cartId}`)
       .then((res) => {
         console.log(res);
       })

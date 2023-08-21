@@ -2,8 +2,10 @@ import Modal from "./Modal";
 import afterPay from "../../assets/Afterpay_Logo_Black.png";
 import "./Cart.css";
 import CartCard from "../cards/CartCard";
+import { useNavigate } from "react-router-dom";
 
-const Cart = ({ modal, setModal, cart }) => {
+const Cart = ({ modal, setModal, cart}) => {
+  const navigate = useNavigate()
   let itemDisplay = [];
   let cost = 0;
   let money = cost.toFixed(2);
@@ -28,8 +30,13 @@ const Cart = ({ modal, setModal, cart }) => {
     money = cost.toFixed(2);
   }
 
-  return (
-    <Modal>
+  const clickHandler = () => {
+    setModal(!modal)
+    navigate('/login')
+  }
+
+  return (localStorage.getItem('userToken') ?  
+  <Modal>
       {cart.length === 0 ? (
         <div className="empty">
           <h1 className="empty-msg">Cart is empty</h1>
@@ -64,7 +71,13 @@ const Cart = ({ modal, setModal, cart }) => {
           </div>
         </div>
       )}
-    </Modal>
+    </Modal> :
+    <Modal>
+    <div className="empty">
+      <h1 className="empty-msg">Login to check cart</h1>
+      <button className="cart-btn" onClick={()=>{clickHandler()}}>Login/Register</button>
+    </div>
+  </Modal> 
   );
 };
 

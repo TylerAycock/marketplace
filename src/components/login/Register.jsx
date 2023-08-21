@@ -21,7 +21,8 @@ const Register = () => {
     axios
       .post("http://localhost:5050/register", body)
       .then((res) => {
-        console.log(res);
+        localStorage.setItem("userToken", res.data);
+        console.log("user REGISTERED and token now in local storage!");
         navigate("/");
       })
       .catch((err) => {
