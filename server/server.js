@@ -13,8 +13,8 @@ app.use(cors())
 const {Cart} = require('./controller/models/cart')
 const {User} = require('./controller/models/user')
 
-// Cart.belongsTo(User)
-// User.hasMany(Cart)
+User.hasMany(Cart)
+Cart.belongsTo(User)
 
 //controller file
 const { addToCart, getCartItems, deleteItem, newUser, loginUser } = require('./controller/controller')

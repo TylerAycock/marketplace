@@ -28,7 +28,7 @@ module.exports = {
                     email: email
                 }
             })
-            await Cart.create({ prodId, title, price, img, userId: theUser.userId })
+            await Cart.create({ prodId, title, price, img, userId: theUser.id })
             res.sendStatus(201)
         }
         catch (err) {
@@ -45,7 +45,7 @@ module.exports = {
                 }
             })
             const cart = await Cart.findAll({
-                where: {userId: theUser.userId}
+                where: {userId: theUser.id}
             })
             res.status(200).send(cart)
         }
@@ -60,7 +60,7 @@ module.exports = {
 
             const deleteRows = await Cart.destroy({
                 where: {
-                    cartId: id
+                    id: id
                 }
             })
             if (deleteRows > 0) {
