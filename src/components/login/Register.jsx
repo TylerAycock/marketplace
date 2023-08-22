@@ -9,6 +9,8 @@ const Register = () => {
   const [fName, setFName] = useState("");
   const [lName, setLName] = useState("");
   const navigate = useNavigate();
+  const [validNewEmail, setValidNewEmail]= useState(true)
+  const [validNewPass, setValidNewPass] = useState(false)
 
   const handleSumbit = (e) => {
     e.preventDefault();
@@ -21,6 +23,9 @@ const Register = () => {
     axios
       .post("http://localhost:5050/register", body)
       .then((res) => {
+        if(res.data === 'email already on file'){
+          setValidNewEmail(false)
+        }
         localStorage.setItem("userToken", res.data);
         console.log("user REGISTERED and token now in local storage!");
         navigate("/");
@@ -45,13 +50,18 @@ const Register = () => {
             </div>
           </div>
         <div className="input-group">
-          <div className="ind-input">
+          <div className={validNewEmail? "ind-input" : "ind-input error"}>
             <label htmlFor="email">Email:</label>
-            <input type="email" name="email" id="email" onChange={e=>{setEmail(e.target.value)}}/>
+            <input type="email" name="email" id="email" onChange={e=>{
+              setEmail(e.target.value)
+              setValidNewEmail(true)
+              }}/>
+            <span className="msg">Email Already Registered</span>
             </div>
             <div className="ind-input">
             <label htmlFor="password">Password:</label>
             <input type="password" id="passowrd" name="password" onChange={e=>{setPassword(e.target.value)}} />
+            <span className="pass-msg">Make sure to use a strong password. Eight characters minimum!</span>
             </div>
         </div>
           <button type="submit" className="auth-btn register-btn" >Create Account</button>

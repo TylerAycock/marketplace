@@ -23,7 +23,7 @@ module.exports = {
         try {
             console.log(req.body)
             const { id: prodId, title, price, img, email } = req.body
-           const theUser = await User.findOne({
+            const theUser = await User.findOne({
                 where: {
                     email: email
                 }
@@ -37,7 +37,7 @@ module.exports = {
     },
     getCartItems: async (req, res) => {
         try {
-            const {email} = req.params
+            const { email } = req.params
             console.log('sending cart')
             const theUser = await User.findOne({
                 where: {
@@ -45,7 +45,7 @@ module.exports = {
                 }
             })
             const cart = await Cart.findAll({
-                where: {userId: theUser.id}
+                where: { userId: theUser.id }
             })
             res.status(200).send(cart)
         }
@@ -96,13 +96,20 @@ module.exports = {
         }
     },
     loginUser: async (req, res) => {
-        console.log("this is the req body" , req.body)
+        console.log("this is the req body", req.body)
         const { email } = req.body
         let foundUser = await User.findOne({ where: { email: email } })
-        
+
         if (foundUser === null) {
-            return res.status(201).send(`this email is not in our records`)
+            return res.status(201).send(`invalid email or password`)
         }
+        if (foundUser) {
+            let usePass = await bcrypt.compare(req.body.password, foundUser.password)
+            if (!usePass) {
+                return res.status(201).send('invalid password')
+            }
+        }
+
         try {
             if (await bcrypt.compare(req.body.password, foundUser.password)) {
                 let token = generateToken(req.body)

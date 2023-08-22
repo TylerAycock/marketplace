@@ -5,7 +5,7 @@ const Logout = () => {
   const navigate = useNavigate();
   const clickHandler = () => {
     localStorage.clear();
-    navigate("/");
+    navigate("/login");
   };
   return (
     <div className="auth-body">

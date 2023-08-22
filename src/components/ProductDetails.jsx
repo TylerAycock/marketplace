@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import DetailsCard from "./cards/DetailsCard";
 
-const ProductDetails = () => {
+const ProductDetails = ({setRefresh, refresh}) => {
   let { id } = useParams();
 
   const [item, setItem] = useState({});
@@ -27,7 +27,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <DetailsCard item={item} rating={rating} />
+      <DetailsCard item={item} rating={rating} setRefresh={setRefresh} refresh={refresh}/>
     </>
   );
 };

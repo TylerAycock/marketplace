@@ -5,7 +5,6 @@ const CartCard = ({ item, modal, setModal}) => {
   let { id, img, price, prodId, title} = item;
 
   const clickHandler = () => {
-    console.log(item)
     axios
       .delete(`http://localhost:5050/cart/${id}`)
       .then((res) => {

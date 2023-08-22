@@ -57,10 +57,6 @@ const Search = ({ products }) => {
         >
           <option value="">Select a category</option>
           <Dropdown products={products}/>
-          {/* <option value="men's clothing">Men's Clothing</option>
-          <option value="women's clothing">Women's Clothing</option>
-          <option value="jewelery">Jewelry</option>
-          <option value="electronics">Electronics</option> */}
         </select>
         {category.length > 0 ? (
           <input

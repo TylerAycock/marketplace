@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
-import cart from "../assets/cart.png";
+import theCart from "../assets/cart.png";
 import search from "../assets/search.png";
 import person from "../assets/person.png";
 import "./Header.css";
 import { useState, useEffect } from "react";
 
-const Header = ({ modal, setModal, currentForm }) => {
+const Header = ({ modal, setModal, cart}) => {
   const [sticky, setSticky] = useState("");
 
   useEffect(() => {
@@ -33,19 +33,22 @@ const Header = ({ modal, setModal, currentForm }) => {
       <NavLink to={"/"}>
         <h1 className="title">Fake Store</h1>
       </NavLink>
-      <nav>
+      <nav className="nav">
         <NavLink to={"/search"}>
           <img src={search} alt="serach icon" className="search-icon" />
         </NavLink>
         <NavLink to={"/login"}>
           <img src={person} alt="person icon" className="person-icon" />
         </NavLink>
-        <img
-          src={cart}
-          alt="shopping cart"
-          className="cart-logo"
-          onClick={ClickHandler}
-        />
+        <button className="cart" onClick={ClickHandler}>
+          <img
+            src={theCart}
+            alt="shopping cart"
+            className="cart-logo"
+          />
+          <div className="cart-count">{cart.length}</div>
+
+        </button>
       </nav>
     </div>
   );

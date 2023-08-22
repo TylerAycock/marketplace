@@ -8,6 +8,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [validEmail, setValidEmail] = useState(true)
+  const[validPass, setValidPass] = useState(true)
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -19,9 +21,18 @@ const Login = () => {
     axios
       .post("http://localhost:5050/login", user)
       .then((res) => {
-        if (res.data === "this email is not in our records") {
-          alert(res.data);
-        } else {
+        if (res.data === "invalid email or password") {
+          setValidEmail(false)
+          setValidPass(false)
+        }
+        else if(res.data === "invalid password"){
+          setValidPass(false)
+        } 
+        else if(res.data === 'invalid email and password'){
+          setValidEmail(false)
+          
+        }
+        else {
           localStorage.setItem("userToken", res.data);
           console.log("user confirmed and token now in local storage!");
           navigate("/");
@@ -32,6 +43,8 @@ const Login = () => {
         console.log(err);
       });
   };
+
+  console.log(validEmail)
 
 
   return (
@@ -44,26 +57,28 @@ const Login = () => {
           below
         </p>
         <form onSubmit={submitHandler}>
-          <div className="input-group">
+          <div className={validEmail? "input-group" : "input-group error"}>
             <input
               placeholder="Email Address"
               type="email"
               name="email"
               id="email"
               onChange={(e) => {
-                setEmail(e.target.value);
+                setEmail(e.target.value)
+                setValidEmail(true)
               }}
             />
-            <span className="msg">Valid Email</span>
+            <span className="msg">Invalid Email</span>
           </div>
-          <div className="input-group">
+          <div className={validPass? "input-group " : "input-group error" }>
             <input
               placeholder="Password"
               type="password"
               name="password"
               id="password"
               onChange={(e) => {
-                setPassword(e.target.value);
+                setPassword(e.target.value)
+                setValidPass(true)
               }}
             />
             <span className="msg">Incorrect Password</span>

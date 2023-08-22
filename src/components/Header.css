@@ -10,11 +10,17 @@
     width: 100vw;
     height: 6rem;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: fixed;
     top: 0px;
     margin: 0 auto;
     z-index: 1;
+}
+
+.nav{
+    display: flex;
+    gap: 10px;
+    padding-right: 20px;
 }
 
 .cart-logo,
@@ -22,6 +28,27 @@
 .person-icon{
     height: 2.5rem;
     width: 2.5rem;
+}
+
+.cart{
+    border: none;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+
+.cart-count{
+    position: fixed;
+    z-index: 2;
+    padding-left: 1.25rem;
+    padding-top: .85rem;
+}
+
+.cart:hover{
+    cursor: pointer;
 }
 
 .is-sticky {

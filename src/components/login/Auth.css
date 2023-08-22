@@ -69,7 +69,7 @@
 }
 
 .auth-message{
-    font-size: 1.2rem;
+    font-size: .8rem;
     font-weight: lighter;
 }
 
@@ -98,6 +98,7 @@
 .input-group input {
     font-size: 1.25rem;
     padding: .5em;
+    margin-bottom: .5rem;
     background-color: hsl(var(--primary-light-hsl), .3);
     border: none;
     outline: none;
@@ -112,20 +113,29 @@
 }
 
 
-.input-group.success input{
+/* .input-group.success input{
     box-shadow: 0 0 2px 1px hsl(var(--success-hsl));
 }
+ */
 
+.ind-input.error input,
 .input-group.error input{
     box-shadow: 0 0 2px 1px hsl(var(--error-hsl));
 }
 
+.pass-msg{
+    font-size: .75rem;
+    color: gray;
+    padding-left: .5rem;
+}
+
+.ind-input .msg,
 .input-group .msg{
     display: none;
     font-size: .75rem;
 }
 
-.input-group.success .msg,
+.ind-input.error .msg,
 .input-group.error .msg {
     display: block;
 }

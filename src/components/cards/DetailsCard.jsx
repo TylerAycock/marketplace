@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import "./DetailsCard.css";
 import axios from "axios";
 
-const DetailsCard = ({ item, rating }) => {
+const DetailsCard = ({ item, rating ,refresh, setRefresh }) => {
 
  
-  const clickHandler = () => {
+  const addHandler = () => {
+    setRefresh(!refresh)
     const token = localStorage.getItem('userToken')
     const parsedToken = JSON.parse(atob(token.split('.')[1]))
-
     let body = {
       email: parsedToken.email,
       id: item.id,
@@ -50,7 +50,7 @@ const DetailsCard = ({ item, rating }) => {
         <button
           className="add-btn"
           onClick={() => {
-            clickHandler();
+            addHandler();
           }}
         >
           ADD TO CART
