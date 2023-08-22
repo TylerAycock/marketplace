@@ -2,10 +2,15 @@
     --primary-hsl: 26, 93%, 78%;
 }
 
-.title{
+
+
+ a .title{
     font-size: 4rem;
+    color: black;
+    text-decoration: none;
 }
 .nav-bar{
+    padding-left: .5rem;
     display: flex;
     width: 100vw;
     height: 6rem;
@@ -16,6 +21,13 @@
     margin: 0 auto;
     z-index: 1;
 }
+
+.is-sticky, 
+.nav-bar:hover {
+    box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
+    background-color:hsl(var(--primary-hsl), .7);
+    transition: background-color 500ms linear;
+  }
 
 .nav{
     display: flex;
@@ -51,8 +63,3 @@
     cursor: pointer;
 }
 
-.is-sticky {
-    box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
-    background-color:hsl(var(--primary-hsl), .7);
-    transition: background-color 500ms linear;
-  }

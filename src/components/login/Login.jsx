@@ -17,7 +17,6 @@ const Login = () => {
       email: email.trim(),
       password: password,
     };
-    console.log(user);
     axios
       .post("http://localhost:5050/login", user)
       .then((res) => {
@@ -43,9 +42,6 @@ const Login = () => {
         console.log(err);
       });
   };
-
-  console.log(validEmail)
-
 
   return (
     localStorage.getItem('userToken') ? <Logout /> :
