@@ -6,9 +6,10 @@
 
  a .title{
     font-size: 4rem;
-    color: black;
+    color: #FFF8E8;
     text-decoration: none;
 }
+
 .nav-bar{
     padding-left: .5rem;
     display: flex;
@@ -48,8 +49,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    /* align-items: center; */
-    /* justify-content: center; */
 }
 
 .cart-count{

@@ -4,8 +4,8 @@ import './ProductCard.css'
 const ProductCard = ({item}) => {
     return (
         <Link className="prod-card" to={`/details/${item.id}`}>
-            <h1>{item.title}</h1>
             <img src={item.image} alt={item.title} className="prod-img"/>
+            <h1 className="prod-title">{item.title}</h1>
         </Link>
     )
 }

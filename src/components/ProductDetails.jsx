@@ -14,7 +14,6 @@ const ProductDetails = ({setRefresh, refresh}) => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`https://fakestoreapi.com/products/${id}`);
-        // console.log(res.data);
         setItem(res.data);
         setRating(res.data.rating);
       } catch (error) {

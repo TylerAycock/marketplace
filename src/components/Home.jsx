@@ -1,6 +1,7 @@
 import ProductCard from "./cards/ProductCard";
 import "./Home.css";
-import ft from "../assets/ft-photo.jpeg";
+import ImageSlider from "./slider/ImageSlider";
+import { SliderData } from "./slider/SliderData";
 
 const Home = ({ products }) => {
   const productList = products.map((item) => {
@@ -9,15 +10,7 @@ const Home = ({ products }) => {
 
   return (
     <>
-      <div className="ft-product" style={{ 
-      backgroundImage: `url(${ft})` 
-    }}>
-      <div className="ft-info">
-      <h3>Fjallraven - Foldsack</h3>
-      <p>Unembellished backpack with a simple and functional design</p>
-      <button>Shop Now</button>
-      </div>
-    </div>
+      <ImageSlider slides={SliderData} />
       <div className="prod-container">{productList}</div>;
     </>
   );

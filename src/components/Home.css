@@ -1,40 +1,8 @@
 .prod-container{
-    width: 100vw;
-    height: auto;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding-top: 6rem;
-    z-index: 1;
-}
-
-.ft-product{
-    width: 100vw;
-    height: 45rem;
-    color: white;
-    display: flex;
-    align-items: flex-end;
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    
-}
-
-.ft-info{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 25%;
-    margin-left: 5rem;
-    gap: .25rem;
-}
-
-.ft-info h3{
-    font-size: 2.5rem;
-    font-weight:00;
-}
-
-.ft-info button{
-    align-self: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    gap: 1rem;
 }
