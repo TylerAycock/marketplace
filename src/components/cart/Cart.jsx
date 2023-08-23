@@ -36,7 +36,7 @@ const Cart = ({ modal, setModal, cart}) => {
   }
 
   return (localStorage.getItem('userToken') ?  
-  <Modal>
+  <Modal moddal={modal} setModal={setModal}>
       {cart.length === 0 ? (
         <div className="empty">
           <h1 className="empty-msg">Cart is empty</h1>

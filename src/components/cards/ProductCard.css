@@ -1,5 +1,4 @@
 .prod-card{
-    /* border: 1px solid black; */
     height: 25rem;
     width: 25rem;
     display: flex;
@@ -7,16 +6,17 @@
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
-    border: 1px solid black;
+    
+}
+
+.prod-card img{
+    height:45%;
+    margin: 0;
 }
 
 .prod-title{
     color: black;
     font-size: 1.2rem;
     font-weight: thin;
-}
-
-.prod-img{
-    height: 55%;
-    width: 75%;
+    /* margin-bottom: 10px; */
 }

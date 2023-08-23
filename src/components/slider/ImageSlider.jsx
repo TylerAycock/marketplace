@@ -4,9 +4,13 @@ import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import "./ImageSlider.css";
 import { NavLink } from "react-router-dom";
 
-const ImageSlider = ({ slides }) => {
+const ImageSlider = ({ slides, refresh ,setRefresh}) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
+
+  setTimeout(()=> {
+    nextSlide()
+  }, 4000)
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);

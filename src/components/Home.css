@@ -1,8 +1,71 @@
+.ethos-container{
+    /* margin-top: 30px; */
+    background-color: rgb(255, 248, 232);
+    height: 20rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ethos-container img{
+    margin: 20px 0px;
+    height: auto;
+    width: 30rem;
+}
+
+.msg-container{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.ind-msg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    gap: 10px;
+    text-align: center;
+}
+
+.ind-msg h3,
+.prod-container h2{
+   font-size: 2rem;
+   font-weight: bold;
+}
+
+.ind-msg p{
+    font-size: 1.25rem;
+    line-height: 25px;
+}
+
 .prod-container{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 3rem;
     gap: 1rem;
+    padding: 15px;
 }
+
+.shop{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    width: 75px;
+    font-weight: thin;
+}
+.shop:hover{
+    width: 85px;
+}
+
+.prods{
+    width: 100vw;
+    display: flex;
+    overflow: auto;
+    justify-content: space-around;
+}
+
+

@@ -1,5 +1,5 @@
 .slider{
-    position: relative;
+    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,8 +42,8 @@
 
 .slide-active{
     /* opacity: 1; */
-    transition-duration: 3s;
-    transform: scale(1.08);
+    transition-duration: 3s ease;
+    /* transform: scale(1.08); */
 }
 
 .ft-info{

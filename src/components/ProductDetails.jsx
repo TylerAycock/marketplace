@@ -6,7 +6,6 @@ import DetailsCard from "./cards/DetailsCard";
 
 const ProductDetails = ({setRefresh, refresh}) => {
   let { id } = useParams();
-
   const [item, setItem] = useState({});
   const [rating, setRating] = useState({});
 

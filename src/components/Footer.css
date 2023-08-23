@@ -1,0 +1,56 @@
+.footer{
+    background-color: rgb(42, 41, 40);
+    color: white;
+    height: 10rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.title-container{
+    width: 100px;
+}
+
+.footer-title{
+    font-size: 1.5rem;
+}
+
+.ft-msg{
+    font-size: 1.15rem;
+    font-style: italic;
+}
+
+.email{
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background-color:  rgb(42, 41, 40);
+    font-size: 1.25rem;
+    padding: .5em;
+    color: white;
+}
+
+.email:active{
+    border: none;
+    outline: none;
+}
+
+.ft-btn{
+    background-color:rgb(42, 41, 40) ;
+    color: white;
+    border: 1px solid white;
+    padding: .5rem 1em;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    border-radius: .25rem;
+    outline: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.ft-btn:hover{
+    background-color: white;
+    color: rgb(42, 41, 40);
+    cursor: pointer;
+}
+
