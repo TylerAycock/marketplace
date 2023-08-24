@@ -1,9 +1,7 @@
 import { NavLink } from "react-router-dom";
-import theCart from "../assets/cart.png";
-import search from "../assets/search.png";
-import person from "../assets/person.png";
 import "./Header.css";
 import { useState, useEffect } from "react";
+import { AiOutlineSearch, AiOutlineShopping ,AiOutlineUser} from "react-icons/ai";
 
 const Header = ({ modal, setModal, cart}) => {
   const [sticky, setSticky] = useState("");
@@ -28,6 +26,13 @@ const Header = ({ modal, setModal, cart}) => {
     setModal(!modal);
   };
 
+  const scrollTop = ()=> {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
   return (
     <div className={classes}>
       <NavLink to={"/"}>
@@ -35,19 +40,14 @@ const Header = ({ modal, setModal, cart}) => {
       </NavLink>
       <nav className="nav">
         <NavLink to={"/search"}>
-          <img src={search} alt="serach icon" className="search-icon" />
+            <AiOutlineSearch  className="search-icon" onClick={()=>scrollTop()}/>
         </NavLink>
         <NavLink to={"/login"}>
-          <img src={person} alt="person icon" className="person-icon" />
+          <AiOutlineUser className="person-icon" />
         </NavLink>
         <button className="cart" onClick={ClickHandler}>
-          <img
-            src={theCart}
-            alt="shopping cart"
-            className="cart-logo"
-          />
+          <AiOutlineShopping className="cart-logo"/>
           <div className="cart-count">{cart.length}</div>
-
         </button>
       </nav>
     </div>

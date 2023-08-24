@@ -2,6 +2,7 @@ import "./Search.css";
 import { useState, useEffect } from "react";
 import ProductCard from "../cards/ProductCard";
 import Dropdown from "./DropDown";
+import { AiOutlineSearch } from "react-icons/ai";
 
 const Search = ({ products }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -41,39 +42,38 @@ const Search = ({ products }) => {
 
   return (
     <div className="search">
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="search for an item"
-          onChange={(e) => {
-            setSearchInput(e.target.value);
-          }}
-        />
-        <label htmlFor="category">Categories:</label>
-        <select
-          name="category"
-          id="category"
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="">Select a category</option>
-          <Dropdown products={products}/>
-        </select>
-        {category.length > 0 ? (
-          <input
-            type="text"
-            placeholder="filter more"
-            onChange={(e) => setFilterSearch(e.target.value)}
-          />
+      <div className="search-bar-container">
+        <div className="search-bar">
+        <AiOutlineSearch className="search-icon"/>
+          <input className="search-input" type="text" placeholder="TYPE TO SEARCH" onChange={(e) => {setSearchInput(e.target.value);}}/>
+        </div>
+          <div className="category-bar">
+          <label htmlFor="category">Filter By Category:</label>
+            <select
+              name="category"
+              id="category"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="">Select a category</option>
+              <Dropdown products={products} />
+            </select>
+            {category ? (
+              <input
+                type="text"
+                placeholder="TYPE TO SEARCH"
+                onChange={(e) => setFilterSearch(e.target.value)}
+              />
+            ) : (
+              <span></span>
+            )}
+          </div>
+      </div>
+        {category? (
+          <div className="results">{dropDownDisplay}</div>
         ) : (
-          ""
+          <div className="results">{searchDisplay}</div>
         )}
       </div>
-      {category.length > 0 ? (
-        <div className="prod-container">{dropDownDisplay}</div>
-      ) : (
-        <div className="prod-container">{searchDisplay}</div>
-      )}
-    </div>
   );
 };
 

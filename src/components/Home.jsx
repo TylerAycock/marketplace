@@ -10,6 +10,13 @@ const Home = ({ mens, refresh, setRefresh }) => {
     return <ProductCard key={item.id} item={item} />;
   });
 
+  const scrollTop = ()=> {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
   return (
     <>
       <ImageSlider
@@ -48,7 +55,7 @@ const Home = ({ mens, refresh, setRefresh }) => {
       </div>
       <div className="prod-container">
         <h2>Best Sellers</h2>
-        <NavLink to={"/search"} className="shop">
+        <NavLink to={"/search"} className="shop" onClick={()=> scrollTop()}>
           <h3>Shop All</h3>
           <AiOutlineArrowRight />
         </NavLink>

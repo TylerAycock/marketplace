@@ -39,6 +39,7 @@
 .cart-logo,
 .search-icon,
 .person-icon{
+    color: black;
     height: 2.5rem;
     width: 2.5rem;
 }
@@ -54,8 +55,8 @@
 .cart-count{
     position: fixed;
     z-index: 2;
-    padding-left: 1.25rem;
-    padding-top: .85rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
 }
 
 .cart:hover{
