@@ -15,6 +15,7 @@ module.exports = {
 
         try {
             token = jwt.verify(headerToken, SECRET)
+            
         } catch (error) {
             error.statusCode = 500
             throw error

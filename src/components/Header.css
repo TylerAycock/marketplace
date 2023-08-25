@@ -39,6 +39,13 @@
     width: 2.5rem;
 }
 
+.cart-logo:hover,
+.search-icon:hover,
+.person-icon:hover{
+    color: hsl(var(--dark-blue-hsl));
+}
+
+
 .cart{
     border: none;
     background-color: transparent;

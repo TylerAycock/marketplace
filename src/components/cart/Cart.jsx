@@ -3,9 +3,10 @@ import afterPay from "../../assets/Afterpay_Logo_Black.png";
 import "./Cart.css";
 import CartCard from "../cards/CartCard";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
-const Cart = ({ modal, setModal, cart}) => {
-  const navigate = useNavigate()
+const Cart = ({ modal, setModal, cart }) => {
+  const navigate = useNavigate();
   let itemDisplay = [];
   let cost = 0;
   let money = cost.toFixed(2);
@@ -31,25 +32,29 @@ const Cart = ({ modal, setModal, cart}) => {
   }
 
   const clickHandler = () => {
-    setModal(!modal)
-    navigate('/login')
-  }
+    setModal(!modal);
+    navigate("/login");
+  };
 
-  return (localStorage.getItem('userToken') ?  
-  <Modal moddal={modal} setModal={setModal}>
+  return localStorage.getItem("userToken") ? (
+    <Modal moddal={modal} setModal={setModal}>
       {cart.length === 0 ? (
         <div className="empty">
           <h1 className="empty-msg">Cart is empty</h1>
-          <button onClick={()=>setModal(!modal)} className="cart-btn">Keep Shopping</button>
+          <button onClick={() => setModal(!modal)} className="cart-btn">
+            Keep Shopping
+          </button>
         </div>
       ) : (
         <div className="cart-container">
           <div className="item-box">
             <h1 className="bag">Your Bag: ${money}</h1>
-            <span className="arrow">&#x2190;</span>
-            <button onClick={() => setModal(!modal)} className="cncl-btn">
-              Continue Shopping
-            </button>
+            <div className="cncl-group">
+              <AiOutlineArrowLeft className="cncl-arrow"/>
+              <button onClick={() => setModal(!modal)} className="cncl-btn">
+                Continue Shopping
+              </button>
+            </div>
             <div className="item-cards">{itemDisplay}</div>
           </div>
           <div className="cost-box">
@@ -71,13 +76,21 @@ const Cart = ({ modal, setModal, cart}) => {
           </div>
         </div>
       )}
-    </Modal> :
+    </Modal>
+  ) : (
     <Modal>
-    <div className="empty">
-      <h1 className="empty-msg">Login to check cart</h1>
-      <button className="cart-btn" onClick={()=>{clickHandler()}}>Login/Register</button>
-    </div>
-  </Modal> 
+      <div className="empty">
+        <h1 className="empty-msg">Login to check cart</h1>
+        <button
+          className="cart-btn"
+          onClick={() => {
+            clickHandler();
+          }}
+        >
+          Login/Register
+        </button>
+      </div>
+    </Modal>
   );
 };
 

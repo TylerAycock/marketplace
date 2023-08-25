@@ -57,8 +57,11 @@
 }
 
 .item-cards{
-    /* max-height: 55%;
-    overflow: scroll; */
+    max-height: 75%;
+    overflow: scroll;
+}
+::-webkit-scrollbar{
+    display: none;
 }
 
 .cost-box{

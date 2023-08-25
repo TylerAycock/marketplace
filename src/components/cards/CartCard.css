@@ -34,3 +34,26 @@
 .remove-btn:hover{
     cursor: pointer;
 }
+
+.cncl-group{
+    display: flex;
+    justify-content: flex-end;
+    width: 150px;
+}
+.cncl-group:hover{
+   gap: 5px;
+}
+
+.cncl-arrow{
+    color: rgb(187, 183, 183);
+}
+/* .cncl-btn{
+    width: 150px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cncl-btn:hover{
+    width: 160px;
+    gap: 5px;
+} */
