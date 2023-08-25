@@ -1,5 +1,6 @@
 .search{
     padding-top: 6rem;
+    padding-left: 5px;
     height: calc(100vh-6rem);
     width: 100vw;
     display: flex; 
@@ -18,7 +19,7 @@
 }
 
 .search-input{
-    padding: 1.5rem;
+    margin: 1.5rem;
     border: none;
     border-bottom: 1px solid;
     outline: none;
@@ -28,13 +29,14 @@
 }
 
 .category-bar{
-    /* border: 1px solid black; */
+    position: fixed;
+    right: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     width: 15rem;
-    padding-top: 2rem;
+    margin-top: 5rem;
     gap: 10px;
     z-index: 1;
 }
@@ -57,4 +59,43 @@
     width: 82vw;
     justify-content: center;
     min-height: 600px;
+}
+
+.hamburger{
+    position: fixed;
+    top: 50px;
+    display: block;
+    width: 35px;
+    height: 35px;
+    appearance: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.hamburger .bar, .hamburger:after, .hamburger:before {
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    margin: 5px auto;
+    transition: all .4s ease-in-out;
+    content: '';
+    display: block;
+}
+
+.hamburger.is-active:before{
+    transform:  translateY(10px) rotate(45deg);
+}
+
+.hamburger.is-active:after{
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+.hamburger.is-active .bar{
+ opacity: 0;
+}
+
+.hidden{
+    display: none;
 }

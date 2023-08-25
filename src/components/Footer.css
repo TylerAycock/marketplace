@@ -1,5 +1,5 @@
 .footer{
-    background-color: rgb(42, 41, 40);
+    background-color: hsl(var(--darkest-hsl));
     color: white;
     height: 10rem;
     display: flex;
@@ -24,7 +24,7 @@
     border: none;
     border-bottom: 1px solid white;
     outline: none;
-    background-color:  rgb(42, 41, 40);
+    background-color: hsl(var(--darkest-hsl));
     font-size: 1.25rem;
     padding: .5em;
     color: white;
@@ -38,7 +38,7 @@
 .ft-btn{
     background-color:rgb(42, 41, 40) ;
     color: white;
-    border: 1px solid white;
+    border: 1px solid hsl(var(--dark-blue-hsl));
     padding: .5rem 1em;
     font-size: 1.5rem;
     font-weight: lighter;
@@ -49,8 +49,8 @@
 }
 
 .ft-btn:hover{
-    background-color: white;
-    color: rgb(42, 41, 40);
+    background-color: hsl(var(--light-blue-hsl));
+    color: hsl(var(--darkest-hsl));
     cursor: pointer;
 }
 

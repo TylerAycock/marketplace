@@ -2,34 +2,40 @@ import StarRating from "../rating/StarRating";
 import { Link } from "react-router-dom";
 import "./DetailsCard.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const DetailsCard = ({ item, rating ,refresh, setRefresh }) => {
+const DetailsCard = ({ item, rating, refresh, setRefresh }) => {
+  const navigate = useNavigate();
 
- 
   const addHandler = () => {
-    setRefresh(!refresh)
-    const token = localStorage.getItem('userToken')
-    const parsedToken = JSON.parse(atob(token.split('.')[1]))
-    let body = {
-      email: parsedToken.email,
-      id: item.id,
-      title: item.title,
-      price: item.price,
-      img: item.image,
-    };
+    
+    const token = localStorage.getItem("userToken");
+    if (token) {
+      const parsedToken = JSON.parse(atob(token.split(".")[1]));
+      let body = {
+        email: parsedToken.email,
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        img: item.image,
+      };
+      
+      setRefresh(!refresh);
 
-   
-    axios
-      .post("http://localhost:5050/cart", body, {
-        headers: {
-          authorization: token
-        }
-      })
-      .then((res) => {
-        console.log("item sent!");
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+      axios
+        .post("http://localhost:5050/cart", body, {
+          headers: {
+            authorization: token,
+          },
+        })
+        .then((res) => {
+          console.log("item sent!");
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -46,7 +52,7 @@ const DetailsCard = ({ item, rating ,refresh, setRefresh }) => {
           <StarRating rating={rating.rate} />
           <p>{rating.count} Reviews</p>
         </div>
-        <Link to={"/"}>Home</Link>
+        <Link to={"/"} className="back">Home</Link>
         <button
           className="add-btn"
           onClick={() => {

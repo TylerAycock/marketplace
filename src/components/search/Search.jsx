@@ -9,6 +9,7 @@ const Search = ({ products }) => {
   const [category, setCategory] = useState("");
   const [filtered, setFiltered] = useState([]);
   const [filterSearch, setFilterSearch] = useState("");
+  const [isActive, setIsActive] = useState(false);
 
   //updates filtered list every time category changes
   useEffect(() => {
@@ -44,36 +45,49 @@ const Search = ({ products }) => {
     <div className="search">
       <div className="search-bar-container">
         <div className="search-bar">
-        <AiOutlineSearch className="search-icon"/>
-          <input className="search-input" type="text" placeholder="TYPE TO SEARCH" onChange={(e) => {setSearchInput(e.target.value);}}/>
+          <AiOutlineSearch className="search-icon" />
+          <input
+            className="search-input"
+            type="text"
+            placeholder="TYPE TO SEARCH"
+            onChange={(e) => {
+              setSearchInput(e.target.value);
+            }}
+          />
         </div>
-          <div className="category-bar">
+        <button
+          className={isActive ? "hamburger is-active" : "hamburger"}
+          onClick={() => setIsActive(!isActive)}
+        >
+          <div className="bar"></div>
+        </button>
+        <div className={isActive? "category-bar": "category-bar hidden"}>
           <label htmlFor="category">Filter By Category:</label>
-            <select
-              name="category"
-              id="category"
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              <option value="">Select a category</option>
-              <Dropdown products={products} />
-            </select>
-            {category ? (
-              <input
-                type="text"
-                placeholder="TYPE TO SEARCH"
-                onChange={(e) => setFilterSearch(e.target.value)}
-              />
-            ) : (
-              <span></span>
-            )}
-          </div>
+          <select
+            name="category"
+            id="category"
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="">Select a category</option>
+            <Dropdown products={products} />
+          </select>
+          {category ? (
+            <input
+              type="text"
+              placeholder="TYPE TO SEARCH"
+              onChange={(e) => setFilterSearch(e.target.value)}
+            />
+          ) : (
+            <span></span>
+          )}
+        </div>
       </div>
-        {category? (
-          <div className="results">{dropDownDisplay}</div>
-        ) : (
-          <div className="results">{searchDisplay}</div>
-        )}
-      </div>
+      {category ? (
+        <div className="results">{dropDownDisplay}</div>
+      ) : (
+        <div className="results">{searchDisplay}</div>
+      )}
+    </div>
   );
 };
 

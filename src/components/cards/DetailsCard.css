@@ -50,7 +50,7 @@
 }
 
 .add-btn{
-    background-color: hsl(var(--primary-hsl));
+    background-color: hsl(var(--light-blue-hsl));
     padding: 14px 28px;
     width: 50%;
     font-size: 1.25rem;
@@ -58,12 +58,20 @@
     outline: none;
     border-radius: .25em;
     font-weight: lighter;
-    box-shadow: 0 0 2px 1px black;
+    box-shadow: 0 0 2px 1px hsl(var(--dark-blue-hsl));
 }
 
 .add-btn:hover{
     cursor: pointer;
-    box-shadow: 0 0 2px 1px black;
-    background-color: black;
-    color: hsl(var(--primary-hsl));
+    box-shadow: 0 0 2px 1px hsl(var(--light-blue-hsl));
+    background-color: hsl(var(--dark-blue-hsl));
+    color: black;
+}
+
+.back{
+    color: black;
+}
+
+.back:hover{
+    cursor: pointer;
 }

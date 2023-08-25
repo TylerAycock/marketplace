@@ -17,6 +17,7 @@ function App() {
   const [modal, setModal] = useState(false);
   const [cart, setCart] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  
 
   //initial API request
   useEffect(() => {

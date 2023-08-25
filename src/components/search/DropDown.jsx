@@ -1,15 +1,15 @@
 const Dropdown = ({ products }) => {
-  let theCat = products.map((item) => {
+  let theCategories = products.map((item) => {
     return item.category;
   });
 
-  let onlyCat = [...new Set(theCat)];
+  let categoryArr = [...new Set(theCategories)];
 
-  let options = onlyCat?.map((category, index) => {
-    let shown = category[0].toUpperCase() + category.slice(1);
+  let options = categoryArr?.map((category, index) => {
+    let capitalized = category[0].toUpperCase() + category.slice(1);
     return (
       <option key={index} value={category}>
-        {shown}
+        {capitalized}
       </option>
     );
   });

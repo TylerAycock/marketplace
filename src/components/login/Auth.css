@@ -1,10 +1,3 @@
-:root{
-    --primary-light-hsl: 200, 100%, 91%;
-    --primary-hsl: 200, 100%, 50%;
-    --primary-dark-hsl: 200, 100%, 6%;
-    --success-hsl: 100, 60%, 50%;
-    --error-hsl: 0, 60%, 50%;
-}
 
 .auth-body{
     width: 100vw;
@@ -14,10 +7,24 @@
     justify-content: center;
 }
 
+.logout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 75%;
+}
+
+.logout p {
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
 .auth-container{
-    --color: hsl(var(--primary-dark-hsl), .7);
-    /* box-shadow:0 0 15 0 var(--color);
-    border-radius: 20px; */
+    --color: hsl(var(--dark-blue-hsl), .7);
+    box-shadow:0 0 15 0 var(--color);
     padding: 40px 30px;
     width: 40%;
     height: 55%;
@@ -38,7 +45,7 @@
     text-align: center;
     justify-content: center;
     width: 65vw;
-    box-shadow:0 0 15 0 var(--color);
+    box-shadow:0 0 15 0 var(--dark-blue-hsl);
     border-radius: 20px;
 }
 
@@ -99,7 +106,7 @@
     font-size: 1.25rem;
     padding: .5em;
     margin-bottom: .5rem;
-    background-color: hsl(var(--primary-light-hsl), .3);
+    background-color: hsl(var(--light-blue-hsl), .3);
     border: none;
     outline: none;
     border-radius: .25em;
@@ -108,7 +115,7 @@
 }
 
 .input-group input:focus{
-    box-shadow: 0 0 2px 1px hsl(var(--primary-hsl));
+    box-shadow: 0 0 2px 1px hsl(var(--dark-blue-hsl));
     /* we use this instead of a border so it wont move the entire element */
 }
 
@@ -144,8 +151,8 @@
     padding: .5rem 1em;
     font-size: 1.5rem;
     font-weight: lighter;
-    background-color: hsl(var(--primary-hsl), .25);
-    border: 1px solid hsl(var(--primary-hsl));
+    background-color: hsl(var(--light-blue-hsl));
+    border: 1px solid hsl(var(--light-blue-hsl));
     border-radius: .25rem;
     outline: none;
     cursor: pointer;
@@ -157,7 +164,7 @@
 }
 
 .auth-btn:hover{
-    background-color: hsl(var(--primary-hsl),.4) ;
+    background-color: hsl(var(--dark-blue-hsl)) ;
 }
 
 .auth-btn a{

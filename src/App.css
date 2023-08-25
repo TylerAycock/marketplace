@@ -4,3 +4,21 @@
     background-color: #FFF8E8;
 }
 
+
+:root{
+    --darkest-hsl: 30, 2.4%, 16.1%;
+    --dark-or-hsl: 34.6, 100%, 55.5%;
+    --light-or-hsl: 34.4, 100%, 70.6%;
+    --light-blue-hsl: 175.5, 62.5%, 87.5%;	
+    --dark-blue-hsl: 174.4, 62%, 47.5%;
+    --primary-hsl: 330, 2%, 16%;
+    --error-hsl: 0, 60%, 50%;
+}
+
+/* :root{
+    --primary-light-hsl: 200, 100%, 91%;
+    --primary-hsl: 45, 29%, 97%;
+    --primary-dark-hsl: 200, 100%, 6%;
+    --success-hsl: 100, 60%, 50%;
+    
+} */

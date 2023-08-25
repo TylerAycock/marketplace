@@ -69,13 +69,14 @@
     padding: .75rem 4rem;
     font-size: 1rem;
     font-weight: lighter;
-    border: 1px solid black;
+    background-color: hsl(var(--light-blue-hsl));
+    border: 1px solid hsl(var(--dark-blue-hsl));
     border-radius: .75rem;
     outline: none;
 }
 
 .buy-btn:hover{
     cursor: pointer;
-    background-color: black;
+    background-color: hsl(var(--dark-blue-hsl));
     color: white;
 }
