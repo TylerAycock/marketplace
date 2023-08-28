@@ -21,7 +21,7 @@
 .search-input{
     margin: 1.5rem;
     border: none;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid hsl(var(--dark-or-hsl));
     outline: none;
     width: 75vw;
     height: 50px;
@@ -55,7 +55,7 @@
     flex-wrap: wrap;
     gap: 20px;
     align-items: flex-start;
-    border-right: 1px solid;
+    border-right: 1px solid hsl(var(--dark-or-hsl));
     width: 82vw;
     justify-content: center;
     min-height: 600px;

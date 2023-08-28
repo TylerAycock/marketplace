@@ -35,7 +35,7 @@ const Header = ({ modal, setModal, cart}) => {
 
   return (
     <div className={classes}>
-      <NavLink to={"/"}>
+      <NavLink to={"/"} >
         <h1 className="title">Marketplace</h1>
       </NavLink>
       <nav className="nav">

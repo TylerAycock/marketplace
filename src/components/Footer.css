@@ -1,6 +1,7 @@
 .footer{
     background-color: hsl(var(--darkest-hsl));
-    color: white;
+    box-shadow: 0 2px 24px 0 hsl(var(--darkest-hsl));
+    color: hsl(var(--light-or-hsl));
     height: 10rem;
     display: flex;
     justify-content: space-evenly;
@@ -22,7 +23,7 @@
 
 .email{
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid hsl(var(--light-or-hsl));
     outline: none;
     background-color: hsl(var(--darkest-hsl));
     font-size: 1.25rem;
@@ -37,8 +38,8 @@
 
 .ft-btn{
     background-color:rgb(42, 41, 40) ;
-    color: white;
-    border: 1px solid hsl(var(--dark-blue-hsl));
+    color: hsl(var(--light-or-hsl));
+    border: 1px solid hsl(var(--dark-or-hsl));
     padding: .5rem 1em;
     font-size: 1.5rem;
     font-weight: lighter;
@@ -49,8 +50,9 @@
 }
 
 .ft-btn:hover{
-    background-color: hsl(var(--light-blue-hsl));
+    background-color: hsl(var(--dark-or-hsl));
     color: hsl(var(--darkest-hsl));
+    border: 1px solid hsl(var(--light-or-hsl));
     cursor: pointer;
 }
 

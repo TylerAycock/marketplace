@@ -33,8 +33,9 @@ body.active-modal {
     padding: 14px 28px;
     border-radius: 3px;
     max-width: 1000px;
-    min-width: 800px;
-    height: 425px;
+    min-width: 700px;
+    min-height: 400px;
+    max-height: 600px;
 }
 
 .close-modal {

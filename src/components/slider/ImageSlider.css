@@ -1,5 +1,5 @@
 .slider{
-    /* position: relative; */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,13 +8,15 @@
 .ft-product{
     width: 100vw;
     height: 45rem;
-    color: white;
+    color: hsl(var(--light-or-hsl));
     display: flex;
     align-items: flex-end;
     background-size:cover;
     background-repeat: no-repeat;
     background-position: center;
+    transition: left 2s;
 }
+
 
 .right-arrow,
 .left-arrow{
@@ -36,14 +38,11 @@
 }
 
 .slide{
-    /* opacity: .5; */
-    transition-duration: 3s ease;
+    opacity: 0;
 }
 
 .slide-active{
-    /* opacity: 1; */
-    transition-duration: 3s ease;
-    /* transform: scale(1.08); */
+   opacity: 1;
 }
 
 .ft-info{

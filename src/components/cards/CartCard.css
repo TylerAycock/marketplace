@@ -11,6 +11,7 @@
     height: 6rem;
     width: 25%;
     padding: 5px;
+    border-radius: 50%;
     /* margin-right: auto;
     margin-left: auto;
     display: block; */
@@ -28,6 +29,9 @@
 .remove-btn{
     border: none;
     color: rgb(187, 183, 183);
+}
+
+.remove-btn:hover{
     text-decoration: underline;
 }
 

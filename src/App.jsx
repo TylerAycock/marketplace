@@ -14,8 +14,9 @@ import Footer from "./components/Footer";
 function App() {
   const [products, setProducts] = useState([]);
   const [mens, setMens] = useState([]);
-  const [modal, setModal] = useState(false);
   const [cart, setCart] = useState([]);
+  const [modal, setModal] = useState(false);
+  //utilize refresh state to force update the cart inventory to display up to date inventory
   const [refresh, setRefresh] = useState(false);
   
 
