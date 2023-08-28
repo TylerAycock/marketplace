@@ -51,9 +51,8 @@
 
 .item-box{
     width: 65%;
-}
-.cost-box{
-    width: 35%;
+    padding-top: 14px;
+    padding-left: 14px;
 }
 
 .item-cards{
@@ -68,8 +67,9 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    margin-top: 40px;
     width: auto; 
+    padding-right: 14px;
+    padding-top: 28px;
 }
 
 
@@ -99,14 +99,17 @@
 }
 
 .empty{
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
+
 }
 .empty-msg{
-    font-size: 6rem;
+    font-size: 4rem;
 }
 
 .tbd{
