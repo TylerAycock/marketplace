@@ -5,17 +5,38 @@
     align-items: center;
 }
 
-.ft-product{
+.slide-img{
     width: 100vw;
     height: 45rem;
-    color: hsl(var(--light-or-hsl));
-    display: flex;
-    align-items: flex-end;
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: left 2s;
 }
+
+.slide-info{
+    position: absolute;
+    z-index: 10;
+    top: 65%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 25px;
+    height: 25%;
+    width: 35%;
+    gap: .25rem;
+    background-color: hsl(var(--dark-blue-hsl),.25);
+}
+
+.slide-info h3{
+    font-size: 2.5rem;
+    font-weight:bold;
+}
+
+.slide-info p{
+    font-weight: thin;
+}
+
+
 
 
 .right-arrow,
@@ -38,30 +59,17 @@
 }
 
 .slide{
-    opacity: 0;
+    opacity: 1;
+    transition-duration: 1s ease;
 }
 
 .slide-active{
-   opacity: 1;
+   opacity: 0;
+   transition-duration: 1s ease;
+   transform: scale(1.25);
 }
 
-.ft-info{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 25%;
-    margin-left: 5rem;
-    gap: .25rem;
-}
 
-.ft-info h3{
-    font-size: 2.5rem;
-    font-weight:bold;
-}
-
-.ft-info p{
-    font-weight: thin;
-}
 
 .buy-btn{
     margin-top: .5em;

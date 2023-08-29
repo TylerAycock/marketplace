@@ -35,6 +35,7 @@ const Login = () => {
           localStorage.setItem("userToken", res.data);
           console.log("user confirmed and token now in local storage!");
           navigate("/");
+          window.location.reload()
         }
       })
       .catch((err) => {

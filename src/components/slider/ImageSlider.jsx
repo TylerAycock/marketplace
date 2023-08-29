@@ -1,16 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SliderData } from "./SliderData";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import "./ImageSlider.css";
 import { NavLink } from "react-router-dom";
 
-const ImageSlider = ({ slides, refresh ,setRefresh}) => {
+const ImageSlider = ({ slides }) => {
   const [current, setCurrent] = useState(0);
   const length = slides.length;
-
-  setTimeout(()=> {
-    nextSlide()
-  }, 4000)
 
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
@@ -20,31 +16,40 @@ const ImageSlider = ({ slides, refresh ,setRefresh}) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
+  useEffect(() => {
+    let next = (current + 1) % slides.length;
+    let id = setTimeout(() => setCurrent(next), 3000);
+    return () => clearTimeout(id);
+  }, [current]);
+
   //this is a safety net for the data
   if (!Array.isArray(slides) || slides.length <= 0) {
-    return;
+    return null;
   }
 
   return (
     <section className="slider">
       <AiOutlineLeft className="left-arrow" onClick={() => prevSlide()} />
       <AiOutlineRight className="right-arrow" onClick={() => nextSlide()} />
-      {SliderData.map((slider, index) => {
+      {SliderData.map((slide, index) => {
         return (
-          <div
-            className={index === current ? "slide-active" : "slide"}
-            key={index}
-          >
+          <div key={index}>
             {index === current && (
-                <div className="ft-product" style={{ backgroundImage: `url(${slider.image})` }}>
-                  <div className="ft-info">
-                    <h3>{slider.title}</h3>
-                    <p>{slider.details}</p>
-                    <NavLink to={`/details/${slider.id}`}>
-                      <button className="buy-btn">Shop Now</button>
-                    </NavLink>
-                  </div>
+              <div className={index === current ? "slide active" : "slide"}>
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="slide-img"
+                />
+                <div className="slide-info">
+                  <h3>{slide.title}</h3>
+                  <p>{slide.details}</p>
+                  <NavLink to={`/details/${slide.id}`}>
+                    <button className="buy-btn">Shop Now</button>
+                    <p></p>
+                  </NavLink>
                 </div>
+              </div>
             )}
           </div>
         );

@@ -5,6 +5,7 @@ const Logout = () => {
   const navigate = useNavigate();
   const clickHandler = () => {
     localStorage.clear();
+    window.location.reload()
     navigate("/login");
   };
   return (

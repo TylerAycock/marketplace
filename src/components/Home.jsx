@@ -10,20 +10,16 @@ const Home = ({ mens, refresh, setRefresh }) => {
     return <ProductCard key={item.id} item={item} />;
   });
 
-  const scrollTop = ()=> {
+  const scrollTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
-    })
-  }
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
-      <ImageSlider
-        slides={SliderData}
-        refresh={refresh}
-        setRefresh={setRefresh}
-      />
+      <ImageSlider slides={SliderData} />
       <div className="ethos-container">
         <img
           src="https://cdn.shopify.com/s/files/1/0008/6156/9085/files/Sun-Ray.svg?v=1614724830"
@@ -55,7 +51,7 @@ const Home = ({ mens, refresh, setRefresh }) => {
       </div>
       <div className="prod-container">
         <h2>Best Sellers</h2>
-        <NavLink to={"/search"} className="shop" onClick={()=> scrollTop()}>
+        <NavLink to={"/search"} className="shop" onClick={() => scrollTop()}>
           <h3>Shop All</h3>
           <AiOutlineArrowRight />
         </NavLink>
