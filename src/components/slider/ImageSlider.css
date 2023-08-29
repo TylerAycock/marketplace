@@ -24,7 +24,8 @@
     height: 25%;
     width: 35%;
     gap: .25rem;
-    background-color: hsl(var(--dark-blue-hsl),.25);
+    background-color: hsl(var(--green-hsl),.5);
+    color: hsl(var(--gold-hsl),.7);
 }
 
 .slide-info h3{
@@ -35,9 +36,6 @@
 .slide-info p{
     font-weight: thin;
 }
-
-
-
 
 .right-arrow,
 .left-arrow{
@@ -76,14 +74,17 @@
     padding: .75rem 4rem;
     font-size: 1rem;
     font-weight: lighter;
-    background-color: hsl(var(--light-blue-hsl));
-    border: 1px solid hsl(var(--dark-blue-hsl));
+    background-color: hsl(var(--gold-hsl),.7);
+    /* box-shadow:0 0 15 0 hsl(var(--green-hsl)); */
     border-radius: .75rem;
     outline: none;
+    border: none;
 }
 
 .buy-btn:hover{
+    outline: none;
+    border: none;
     cursor: pointer;
-    background-color: hsl(var(--dark-blue-hsl));
-    color: white;
+    background-color: hsl(var(--gold-hsl));
+    color: hsl(var(--green-hsl));
 }

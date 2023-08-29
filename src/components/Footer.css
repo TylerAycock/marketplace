@@ -1,7 +1,7 @@
 .footer{
-    background-color: hsl(var(--darkest-hsl));
-    box-shadow: 0 2px 24px 0 hsl(var(--darkest-hsl));
-    color: hsl(var(--light-or-hsl));
+    background-color: hsl(var(--green-hsl));
+    box-shadow: 0 2px 24px 0 hsl(var(--green-hsl),.4);
+    color: hsl(var(--gold-hsl));
     height: 10rem;
     display: flex;
     justify-content: space-evenly;
@@ -23,23 +23,23 @@
 
 .email{
     border: none;
-    border-bottom: 1px solid hsl(var(--light-or-hsl));
+    border-bottom: 1px solid hsl(var(--gold-hsl));
     outline: none;
-    background-color: hsl(var(--darkest-hsl));
+    background-color: hsl(var(--green-hsl));
     font-size: 1.25rem;
     padding: .5em;
-    color: white;
+    color: hsl(var(--gold-hsl))
 }
 
 .email:active{
-    border: none;
+    border-bottom: 1px solid hsl(var(--gold-hsl));
     outline: none;
 }
 
 .ft-btn{
-    background-color:rgb(42, 41, 40) ;
-    color: hsl(var(--light-or-hsl));
-    border: 1px solid hsl(var(--dark-or-hsl));
+    background-color: hsl(var(--green-hsl));
+    color: hsl(var(--gold-hsl));
+    border: 1px solid hsl(var(--gold-hsl));
     padding: .5rem 1em;
     font-size: 1.5rem;
     font-weight: lighter;
@@ -50,9 +50,9 @@
 }
 
 .ft-btn:hover{
-    background-color: hsl(var(--dark-or-hsl));
-    color: hsl(var(--darkest-hsl));
-    border: 1px solid hsl(var(--light-or-hsl));
+    background-color: hsl(var(--gold-hsl));
+    color: hsl(var(--green-hsl));
+    border: 1px solid hsl(var(--green-hsl));
     cursor: pointer;
 }
 

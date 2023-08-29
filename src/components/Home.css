@@ -1,6 +1,6 @@
 .ethos-container{
-    /* margin-top: 30px; */
-    background-color: rgb(255, 248, 232);
+    margin-top: 0px;
+    background-color: hsl(var(--gold-hsl));
     height: 20rem;
     width: 100vw;
     display: flex;
@@ -54,11 +54,11 @@
     display: flex;
     justify-content: space-between;
     color: black;
-    width: 75px;
+    width: 85px;
     font-weight: thin;
 }
 .shop:hover{
-    width: 85px;
+    width: 95px;
 }
 
 .prods{

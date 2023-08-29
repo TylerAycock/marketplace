@@ -106,7 +106,8 @@
     font-size: 1.25rem;
     padding: .5em;
     margin-bottom: .5rem;
-    background-color: hsl(var(--light-blue-hsl), .3);
+    background-color: hsl(var(--green-hsl),.9);
+    color: hsl(var(--gold-hsl));
     border: none;
     outline: none;
     border-radius: .25em;
@@ -115,15 +116,10 @@
 }
 
 .input-group input:focus{
-    box-shadow: 0 0 2px 1px hsl(var(--dark-blue-hsl));
+    box-shadow: 0 0 2px 1px hsl(var(--green-hsl));
     /* we use this instead of a border so it wont move the entire element */
 }
 
-
-/* .input-group.success input{
-    box-shadow: 0 0 2px 1px hsl(var(--success-hsl));
-}
- */
 
 .ind-input.error input,
 .input-group.error input{
@@ -144,18 +140,21 @@
 
 .ind-input.error .msg,
 .input-group.error .msg {
-    display: block;
+    display: flex;
 }
+
 
 .auth-btn{
     padding: .5rem 1em;
     font-size: 1.5rem;
     font-weight: lighter;
-    background-color: hsl(var(--light-blue-hsl));
-    border: 1px solid hsl(var(--light-blue-hsl));
+    background-color: hsl(var(--green-hsl));
+    border: 1px solid hsl(var(--green-hsl));
+    color: hsl(var(--gold-hsl));
     border-radius: .25rem;
     outline: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .register-btn{
@@ -163,11 +162,13 @@
     margin-left: 20px;
 }
 
-.auth-btn:hover{
-    background-color: hsl(var(--dark-blue-hsl)) ;
+.auth-btn:hover,
+.auth-btn a:hover{
+    background-color: hsl(var(--gold-hsl)) ;
+    color: hsl(var(--green-hsl));
 }
 
-.auth-btn a{
-    text-decoration: none;
-    color: black;
+.reg-btn{
+    padding: .55rem 4em;
 }
+

@@ -1,6 +1,6 @@
 .item-container{
     display: flex;
-    height: 100vh;
+    height: calc(100vh);
 }
 
 .img-container,
@@ -9,10 +9,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 6rem 0px;
+}
+
+.img-container{
+    position: relative;
 }
 
 .details-container{
     flex-direction: column;
+    align-items: flex-start;
     gap: 25px;
     padding-right: 25px;
 }
@@ -28,15 +34,14 @@
 }
 
 .prod-img{
-    height: 40%;
+    height: 60%;
     width: 40%;
 }
 
 .ratings{
     display: flex;
-    color: rgb(66, 65, 65);
     gap: 20px;
-    align-self: flex-end;
+    /* align-self: flex-end; */
 }
 
 .price{
@@ -50,7 +55,7 @@
 }
 
 .add-btn{
-    background-color: hsl(var(--light-blue-hsl));
+    background-color: hsl(var(--gold-hsl));
     padding: 14px 28px;
     width: 50%;
     font-size: 1.25rem;
@@ -58,18 +63,29 @@
     outline: none;
     border-radius: .25em;
     font-weight: lighter;
-    box-shadow: 0 0 2px 1px hsl(var(--dark-blue-hsl));
+    box-shadow: 0 0 2px 1px hsl(var(--gold-hsl));
 }
 
 .add-btn:hover{
     cursor: pointer;
-    box-shadow: 0 0 2px 1px hsl(var(--light-blue-hsl));
-    background-color: hsl(var(--dark-blue-hsl));
-    color: black;
+    box-shadow: 0 0 2px 1px hsl(var(--gold-hsl));
+    background-color: hsl(var(--green-hsl));
+    color: hsl(var(--gold-hsl));
 }
 
 .back{
+    display: flex;
+    justify-content: flex-end;
+    width: 170px;
     color: black;
+    position: absolute;
+    left: 2.5%;
+    top: 5%;
+}
+
+.back:hover{
+    gap: 5px;
+    text-decoration: underline;
 }
 
 .back:hover{

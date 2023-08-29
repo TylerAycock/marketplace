@@ -1,9 +1,10 @@
 
 .cart-card{
     /* border: .5px solid black; */
-    width: 85%;
-    height: auto;
+    width: 95%;
+    height: 8rem;
     display: flex;
+    align-items: center;
     margin: 5px 0px;
 }
 
@@ -28,6 +29,7 @@
 
 .remove-btn{
     border: none;
+    font-size: .95rem;
     color: rgb(187, 183, 183);
 }
 
@@ -44,13 +46,15 @@
     justify-content: flex-end;
     width: 150px;
 }
-.cncl-group:hover{
-   gap: 5px;
-}
 
-.cncl-arrow{
+
+/* .cncl-group:hover{
+   gap: 5px;
+} */
+
+/* .cncl-arrow{
     color: rgb(187, 183, 183);
-}
+} */
 /* .cncl-btn{
     width: 150px;
     display: flex;

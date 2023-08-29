@@ -5,7 +5,7 @@ const Logout = () => {
   const navigate = useNavigate();
   const clickHandler = () => {
     localStorage.clear();
-    window.location.reload()
+    window.location.reload();
     navigate("/login");
   };
   return (
@@ -26,9 +26,10 @@ const Logout = () => {
           >
             Log Out
           </button>
-          <button className="auth-btn">
-            <NavLink to={"/"}>Shop Marketplace</NavLink>
-          </button>
+
+          <NavLink to={"/"}>
+            <button className="auth-btn">Shop Marketplace</button>
+          </NavLink>
         </div>
       </div>
     </div>

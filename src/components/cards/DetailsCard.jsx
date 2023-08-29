@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./DetailsCard.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const DetailsCard = ({ item, rating, refresh, setRefresh }) => {
   const navigate = useNavigate();
@@ -41,6 +42,10 @@ const DetailsCard = ({ item, rating, refresh, setRefresh }) => {
   return (
     <div className="item-container">
       <div className="img-container">
+      <Link to={"/"} className="back">
+      <AiOutlineArrowLeft/>
+      <h3>Continue Shopping</h3>
+      </Link>
         <img src={item.image} alt={item.title} className="prod-img" />
       </div>
       <div className="details-container">
@@ -52,7 +57,6 @@ const DetailsCard = ({ item, rating, refresh, setRefresh }) => {
           <StarRating rating={rating.rate} />
           <p>{rating.count} Reviews</p>
         </div>
-        <Link to={"/"} className="back">Home</Link>
         <button
           className="add-btn"
           onClick={() => {

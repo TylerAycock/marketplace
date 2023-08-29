@@ -45,7 +45,7 @@ const Search = ({ products }) => {
     <div className="search">
       <div className="search-bar-container">
         <div className="search-bar">
-          <AiOutlineSearch className="search-icon" />
+          <AiOutlineSearch className="searching-icon" />
           <input
             className="search-input"
             type="text"

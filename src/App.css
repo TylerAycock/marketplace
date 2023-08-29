@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+
 .web-page{
     width: 100vw;
     height: 100vh;
     background-color: #FFF8E8;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 :root{
     --darkest-hsl: 30, 2.4%, 16.1%;
@@ -14,4 +16,12 @@
     --dark-blue-hsl: 174.4, 62%, 47.5%;
     --primary-hsl: 330, 2%, 16%;
     --error-hsl: 0, 60%, 50%;
+    --gold-hsl: 52, 66%, 83%;
+    --green-hsl:172, 65%, 30%;
+
 }
+
+::placeholder{
+    color: hsl(var(--gold-hsl));
+}
+
