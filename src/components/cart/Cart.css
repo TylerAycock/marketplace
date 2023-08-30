@@ -21,14 +21,25 @@
     margin-left: 5px;
 }
 
+.cncl-group{
+    display: flex;
+    justify-content: flex-end;
+    width: 170px;
+}
+
+.cncl-group:hover{
+    gap: 2.5px;
+    text-decoration: underline;
+    color: rgb(187, 183, 183) ;
+}
+
 .cncl-btn,
-.arrow{
+.cncl-arrow{
     color: rgb(187, 183, 183) ;
 }
 
 .cncl-btn{
     border: none;
-    text-decoration: underline;
 }
 
 .cncl-btn:hover{
